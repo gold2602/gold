@@ -45,6 +45,20 @@
         to   { transform: rotateX(360deg); }
     }
 
+    @keyframes shake {
+        0% { transform: translate(1px, 1px) rotate(0deg); }
+        10% { transform: translate(-1px, -2px) rotate(-1deg); }
+        20% { transform: translate(-3px, 0px) rotate(1deg); }
+        30% { transform: translate(3px, 2px) rotate(0deg); }
+        40% { transform: translate(1px, -1px) rotate(1deg); }
+        50% { transform: translate(-1px, 2px) rotate(-1deg); }
+        60% { transform: translate(-3px, 1px) rotate(0deg); }
+        70% { transform: translate(3px, 1px) rotate(-1deg); }
+        80% { transform: translate(-1px, -1px) rotate(1deg); }
+        90% { transform: translate(1px, 2px) rotate(0deg); }
+        100% { transform: translate(1px, -2px) rotate(-1deg); }
+    }
+
     .number {
         position: absolute;
         width: 38px;
@@ -104,16 +118,23 @@ function generate() {
         if (!numbers.includes(n)) numbers.push(n);
     }
 
-    // 다시 굴리기
+    // 다시 굴리기 및 흔들기 시작
     balls.forEach(ball => {
-        ball.style.animation = "roll 0.35s linear infinite";
+        ball.style.animation = "roll 0.35s linear infinite, shake 0.1s ease-in-out infinite";
         ball.querySelector('.number').style.display = "none";
     });
 
-    // 멈춘 뒤 숫자 표시
+    // 1.5초 후 흔들기 애니메이션 중지
+    setTimeout(() => {
+        balls.forEach(ball => {
+            ball.style.animation = "roll 0.35s linear infinite"; // 흔들기 애니메이션 제거, 굴러가는 애니메이션 유지
+        });
+    }, 1500);
+
+    // 1.8초 후 모든 애니메이션 중지 및 숫자 표시
     setTimeout(() => {
         balls.forEach((ball, i) => {
-            ball.style.animation = "none";
+            ball.style.animation = "none"; // 모든 애니메이션 중지
             const num = ball.querySelector('.number');
             num.textContent = numbers[i];
             num.style.display = "flex";
