@@ -5,50 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Local Restaurants Map - Hidden Gems by Region</title>
     <meta name="google-adsense-account" content="ca-pub-2130476893965292">
-    <style>
-        :root { --main-color: #ff8a3d; }
-        body { font-family: 'Noto Sans KR', sans-serif; margin: 0; padding: 0; line-height: 1.7; }
-        header { background: var(--main-color); color: white; padding: 1rem; text-align: center; }
-       
-        /* Map Area */
-        #map { width: 100%; height: 400px; background: #eee; margin-bottom: 20px; }
-       
-        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
-        .info-section { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
-        h2 { color: var(--main-color); border-bottom: 2px solid var(--main-color); padding-bottom: 10px; }
-       
-        /* AdSense Ad Area */
-        .ad-space { background: #f0f0f0; text-align: center; padding: 20px; margin: 20px 0; color: #999; font-size: 0.8rem; border: 1px dashed #ccc; }
-       
-        footer { background: #333; color: #ccc; padding: 20px; text-align: center; font-size: 0.8rem; }
-        footer a { color: #fff; text-decoration: none; margin: 0 10px; }
-
-        /* Language Selector Styles */
-        #language-selector {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 16px;
-            font-weight: bold;
-        }
-
-        #language-selector a {
-            color: white;
-            text-decoration: none;
-            padding: 5px;
-        }
-
-        #language-selector a.current-lang {
-            color: var(--main-color); /* Changed to match new color scheme */
-            text-decoration: underline;
-        }
-
-        #language-selector a:hover:not(.current-lang) {
-            text-decoration: underline;
-        }
-    </style>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2130476893965292"
-         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -85,10 +42,7 @@
 </footer>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_APP_KEY"></script>
-<script>
-    // Map initialization script (basic structure)
-    console.log("Map engine ready");
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
