@@ -1,14 +1,126 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+<meta charset="UTF-8">
+<title>로또번호 추첨기</title>
+
+<style>
+    body {
+        background: radial-gradient(circle, #0c5c3b, #021912);
+        color: white;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding-top: 40px;
+        min-height: 100vh;
+    }
+
+    h1 {
+        margin-bottom: 30px;
+    }
+
+    #balls {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 40px;
+        perspective: 800px;
+    }
+
+    .ball {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        position: relative;
+        transform-style: preserve-3d;
+        animation: roll 0.35s linear infinite;
+        box-shadow:
+            inset -10px -10px 18px rgba(0,0,0,0.4),
+            inset 10px 10px 18px rgba(255,255,255,0.25),
+            0 8px 15px rgba(0,0,0,0.6);
+    }
+
+    /* 앞뒤로 구르는 애니메이션 */
+    @keyframes roll {
+        from { transform: rotateX(0deg); }
+        to   { transform: rotateX(360deg); }
+    }
+
+    .number {
+        position: absolute;
+        width: 38px;
+        height: 38px;
+        background: white;
+        border-radius: 50%;
+        color: black;
+        font-weight: bold;
+        font-size: 18px;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) translateZ(15px);
+        box-shadow: inset 0 0 4px rgba(0,0,0,0.4);
+    }
+
+    button {
+        font-size: 20px;
+        padding: 14px 34px;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        background: gold;
+        font-weight: bold;
+    }
+
+    button:hover {
+        background: orange;
+    }
+</style>
 </head>
+
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+
+<h1>🎱 로또번호 추첨기 🎱</h1>
+
+<div id="balls">
+    <div class="ball" style="background:#e53935"><div class="number"></div></div> <!-- 빨강 -->
+    <div class="ball" style="background:#1e88e5"><div class="number"></div></div> <!-- 파랑 -->
+    <div class="ball" style="background:#43a047"><div class="number"></div></div> <!-- 초록 -->
+    <div class="ball" style="background:#fdd835"><div class="number"></div></div> <!-- 노랑 -->
+    <div class="ball" style="background:#8e24aa"><div class="number"></div></div> <!-- 보라 -->
+    <div class="ball" style="background:#fb8c00"><div class="number"></div></div> <!-- 주황 -->
+</div>
+
+<button onclick="generate()">번호 생성</button>
+
+<script>
+function generate() {
+    const balls = document.querySelectorAll('.ball');
+    const numbers = [];
+
+    while (numbers.length < 6) {
+        const n = Math.floor(Math.random() * 45) + 1;
+        if (!numbers.includes(n)) numbers.push(n);
+    }
+
+    // 다시 굴리기
+    balls.forEach(ball => {
+        ball.style.animation = "roll 0.35s linear infinite";
+        ball.querySelector('.number').style.display = "none";
+    });
+
+    // 멈춘 뒤 숫자 표시
+    setTimeout(() => {
+        balls.forEach((ball, i) => {
+            ball.style.animation = "none";
+            const num = ball.querySelector('.number');
+            num.textContent = numbers[i];
+            num.style.display = "flex";
+        });
+    }, 1800);
+}
+</script>
+
 </body>
 </html>
