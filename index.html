@@ -1,40 +1,71 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title>오늘 저녁 뭐 먹지?</title>
-<meta name="google-adsense-account" content="ca-pub-2130476893965292">
-<meta name="description" content="매일 저녁 메뉴를 고민하는 당신을 위한 간단한 저녁 메뉴 추천기입니다. 버튼 하나로 다양한 메뉴 아이디어를 얻어보세요.">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우리동네 맛집 지도 - 지역별 숨은 맛집 총정리</title>
+    <meta name="google-adsense-account" content="ca-pub-2130476893965292">
+    <style>
+        :root { --main-color: #ff8a3d; }
+        body { font-family: 'Noto Sans KR', sans-serif; margin: 0; padding: 0; line-height: 1.7; }
+        header { background: var(--main-color); color: white; padding: 1rem; text-align: center; }
+       
+        /* 지도 영역 */
+        #map { width: 100%; height: 400px; background: #eee; margin-bottom: 20px; }
+       
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .info-section { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+        h2 { color: var(--main-color); border-bottom: 2px solid var(--main-color); padding-bottom: 10px; }
+       
+        /* 애드센스 광고 예정 구역 */
+        .ad-space { background: #f0f0f0; text-align: center; padding: 20px; margin: 20px 0; color: #999; font-size: 0.8rem; border: 1px dashed #ccc; }
+       
+        footer { background: #333; color: #ccc; padding: 20px; text-align: center; font-size: 0.8rem; }
+        footer a { color: #fff; text-decoration: none; margin: 0 10px; }
 
-<link rel="stylesheet" href="style.css">
+        /* Language Selector Styles */
+        #language-selector {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 16px;
+            font-weight: bold;
+        }
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2130476893965292"
-     crossorigin="anonymous"></script>
+        #language-selector a {
+            color: white;
+            text-decoration: none;
+            padding: 5px;
+        }
+
+        #language-selector a.current-lang {
+            color: var(--main-color); /* Changed to match new color scheme */
+            text-decoration: underline;
+        }
+
+        #language-selector a:hover:not(.current-lang) {
+            text-decoration: underline;
+        }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2130476893965292"
+         crossorigin="anonymous"></script>
 </head>
-
 <body>
 
+<div id="language-selector">
+    <a href="#" class="current-lang">한국어</a> | <a href="en.html">English</a>
+</div>
+
 <header>
-    <div id="language-selector">
-        <a href="#" class="current-lang">한국어</a> | <a href="en.html">English</a>
-    </div>
-    <h1>오늘 저녁 뭐 먹지? 😋</h1>
+    <h1>📍 우리동네 맛집 실시간 지도</h1>
 </header>
 
-<main>
-    <p class="intro-text">매일 저녁, 무엇을 먹을지 고민되시나요? 저희의 간단한 저녁 메뉴 추천기가 그 고민을 덜어드립니다. 아래 '메뉴 추천' 버튼을 눌러보세요. 인공지능이 무작위로 맛있는 저녁 메뉴를 제안해 드립니다.</p>
+<div id="map">
+    <p style="text-align:center; padding-top:180px;">지도를 불러오는 중입니다...</p>
+</div>
 
-    <div id="menu-display"></div>
-
-    <div id="menu-image">
-        <img src="pizza.jpg" alt="Pizza Image">
-    </div>
-
-    <button onclick="recommend()">메뉴 추천</button>
-
-    <!-- AdSense Ad Unit -->
-    <div class="adsense-ad-container">
+<div class="container">
+    <div class="ad-space">
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-client="ca-pub-2130476893965292"
@@ -45,43 +76,29 @@
              (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
     </div>
-    <!-- End AdSense Ad Unit -->
 
-    <div class="form-container">
-        <h2>제휴 문의</h2>
-        <form action="https://formspree.io/f/xgolebdd" method="POST">
-            <label for="name">이름:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">이메일:</label>
-            <input type="email" id="email" name="_replyto" required>
-            <label for="message">문의 내용:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-            <button type="submit">문의 보내기</button>
-        </form>
-    </div>
+    <section class="info-section">
+        <h2>이번 주 추천: 양주 옥정 신도시 신규 맛집</h2>
+        <p>양주 옥정동 중심상가에 위치한 <strong>'도토리 화로구이'</strong>는 참숯의 진한 향과 최상급 육질을 자랑합니다. 지도의 1번 핀 위치를 확인하세요. 인근 주차 시설이 완비되어 있어 가족 단위 방문객에게 안성맞춤입니다.</p>
+        <p>특히 이곳의 비법 소스는 과일을 갈아 넣어 자극적이지 않은 단맛이 일품이며, 최근 주민들 사이에서 SNS 명소로 급부상하고 있습니다. (글자 수를 채우기 위해 상세한 메뉴 설명을 덧붙이세요.)</p>
+    </section>
 
-    <div id="disqus_thread"></div>
-</main>
+    <section class="info-section">
+        <h2>로컬 사장님들을 위한 팁</h2>
+        <p>우리동네 맛집 지도는 단순 홍보를 넘어 지역 상권의 상생을 목표로 합니다. 컨설팅 신청은 하단 문의하기를 이용해 주세요.</p>
+    </section>
+</div>
 
 <footer>
-    <a href="about.html">사이트 소개</a> | <a href="privacy.html">개인정보처리방침</a>
+    <p>&copy; 2026 우리동네 맛집 지도. All rights reserved.</p>
+    <a href="privacy.html">개인정보처리방침</a> | <a href="about.html">문의하기</a>
 </footer>
 
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_APP_KEY"></script>
 <script>
-    var disqus_config = function () {
-    this.page.url = window.location.href;
-    this.page.identifier = 'korean-dinner-menu-recommender';
-    };
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://https-gold-98p-pages-dev.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
+    // 지도 초기화 스크립트 (기초 뼈대)
+    console.log("지도 엔진 준비 완료");
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-<script src="script.js"></script>
 
 </body>
 </html>

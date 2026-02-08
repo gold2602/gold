@@ -1,24 +1,29 @@
+:root { --main-color: #ff8a3d; }
 body {
-    background: radial-gradient(circle, #0c5c3b, #021912);
-    color: white;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 0;
+    font-family: 'Noto Sans KR', sans-serif;
     margin: 0;
+    padding: 0;
+    line-height: 1.7;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background: #f4f4f4; /* A light background for the new design */
+    color: #333; /* Darker text for readability */
 }
 
 header {
-    padding: 20px;
-    position: relative;
+    background: var(--main-color);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    position: relative; /* For positioning language selector */
 }
 
 h1 {
-    margin-bottom: 10px;
+    margin: 0; /* Remove default margin from h1 */
 }
 
+/* Language Selector Styles */
 #language-selector {
     position: absolute;
     top: 20px;
@@ -34,7 +39,7 @@ h1 {
 }
 
 #language-selector a.current-lang {
-    color: gold;
+    color: #fff; /* White for current, as main-color is bg */
     text-decoration: underline;
 }
 
@@ -44,116 +49,60 @@ h1 {
 
 main {
     flex: 1;
+    padding: 0; /* Container will handle padding */
+}
+
+/* Map Area */
+#map {
+    width: 100%;
+    height: 400px;
+    background: #eee;
+    margin-bottom: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
 }
 
-.intro-text {
-    max-width: 600px;
-    margin: 0 auto 30px auto;
-    line-height: 1.6;
-}
-
-#menu-display {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100px;
-    font-size: 32px;
-    font-weight: bold;
+.info-section {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
     margin-bottom: 20px;
 }
 
-button {
-    font-size: 20px;
-    padding: 14px 34px;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    background: gold;
-    font-weight: bold;
+h2 {
+    color: var(--main-color);
+    border-bottom: 2px solid var(--main-color);
+    padding-bottom: 10px;
 }
 
-#menu-image {
+/* AdSense Ad Area */
+.ad-space {
+    background: #f0f0f0;
     text-align: center;
-    margin-top: 20px;
-    min-height: 200px; /* To maintain layout consistency */
-    display: none; /* Hidden by default */
-}
-
-#menu-image img {
-    max-width: 200px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-.adsense-ad-container {
-    margin: 30px auto;
-    max-width: 728px;
-    text-align: center;
-}
-
-button:hover {
-    background: orange;
-}
-
-.form-container {
-    max-width: 500px;
-    margin: 50px auto;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-}
-
-.form-container h2 {
-    text-align: center;
-    margin-bottom: 25px;
-    color: gold;
-}
-
-.form-container form label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-}
-
-.form-container form input[type="text"],
-.form-container form input[type="email"],
-.form-container form textarea {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.9);
-    color: #333;
-}
-
-.form-container form textarea {
-    resize: vertical;
-}
-
-.form-container form button[type="submit"] {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    background: gold;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
+    padding: 20px;
+    margin: 20px 0;
+    color: #999;
+    font-size: 0.8rem;
+    border: 1px dashed #ccc;
 }
 
 footer {
+    background: #333;
+    color: #ccc;
     padding: 20px;
-    margin-top: 40px;
-    background: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-size: 0.8rem;
 }
 
 footer a {
-    color: gold;
-    margin: 0 15px;
+    color: #fff;
     text-decoration: none;
+    margin: 0 10px;
 }
 
 footer a:hover {

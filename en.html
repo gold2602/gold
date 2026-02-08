@@ -1,87 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>What's for Dinner Tonight?</title>
-<meta name="google-adsense-account" content="ca-pub-2130476893965292">
-<meta name="description" content="A simple dinner menu recommender for those who worry about their dinner menu every day. Get various menu ideas with the click of a button.">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Restaurants Map - Hidden Gems by Region</title>
+    <meta name="google-adsense-account" content="ca-pub-2130476893965292">
+    <style>
+        :root { --main-color: #ff8a3d; }
+        body { font-family: 'Noto Sans KR', sans-serif; margin: 0; padding: 0; line-height: 1.7; }
+        header { background: var(--main-color); color: white; padding: 1rem; text-align: center; }
+       
+        /* Map Area */
+        #map { width: 100%; height: 400px; background: #eee; margin-bottom: 20px; }
+       
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .info-section { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+        h2 { color: var(--main-color); border-bottom: 2px solid var(--main-color); padding-bottom: 10px; }
+       
+        /* AdSense Ad Area */
+        .ad-space { background: #f0f0f0; text-align: center; padding: 20px; margin: 20px 0; color: #999; font-size: 0.8rem; border: 1px dashed #ccc; }
+       
+        footer { background: #333; color: #ccc; padding: 20px; text-align: center; font-size: 0.8rem; }
+        footer a { color: #fff; text-decoration: none; margin: 0 10px; }
 
-<link rel="stylesheet" href="style.css">
+        /* Language Selector Styles */
+        #language-selector {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 16px;
+            font-weight: bold;
+        }
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2130476893965292"
-     crossorigin="anonymous"></script>
+        #language-selector a {
+            color: white;
+            text-decoration: none;
+            padding: 5px;
+        }
+
+        #language-selector a.current-lang {
+            color: var(--main-color); /* Changed to match new color scheme */
+            text-decoration: underline;
+        }
+
+        #language-selector a:hover:not(.current-lang) {
+            text-decoration: underline;
+        }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2130476893965292"
+         crossorigin="anonymous"></script>
 </head>
-
 <body>
 
+<div id="language-selector">
+    <a href="index.html">한국어</a> | <a href="#" class="current-lang">English</a>
+</div>
+
 <header>
-    <div id="language-selector">
-        <a href="index.html">한국어</a> | <a href="#" class="current-lang">English</a>
-    </div>
-    <h1>What's for Dinner Tonight? 😋</h1>
+    <h1>📍 Local Restaurants Live Map</h1>
 </header>
 
-<main>
-    <p class="intro-text">Struggling with what to eat for dinner every day? Our simple dinner menu recommender is here to help. Click the 'Recommend Menu' button below. Our AI will randomly suggest a delicious dinner menu for you.</p>
+<div id="map">
+    <p style="text-align:center; padding-top:180px;">Loading map...</p>
+</div>
 
-    <div id="menu-display"></div>
+<div class="container">
+    <div class="ad-space">AD: This space will display ads after approval.</div>
 
-    <div id="menu-image">
-        <img src="pizza.jpg" alt="Pizza Image">
-    </div>
+    <section class="info-section">
+        <h2>This Week's Recommendation: Yangju Okjeong New Town's New Hotspot</h2>
+        <p><strong>'Dotori Hwaro-gui'</strong>, located in the central commercial area of Yangju Okjeong-dong, boasts the rich aroma of charcoal and premium quality meat. Check the #1 pin on the map. With ample nearby parking, it's perfect for family visitors.</p>
+        <p>In particular, its secret sauce, made with ground fruits, offers an exquisitely sweet taste without being overly stimulating, and it's rapidly gaining popularity as an SNS hotspot among residents. (Add detailed menu descriptions to meet the word count.)</p>
+    </section>
 
-    <button onclick="recommend()">Recommend Menu</button>
-
-    <!-- AdSense Ad Unit -->
-    <div class="adsense-ad-container">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-2130476893965292"
-             data-ad-slot="YOUR_AD_SLOT_ID"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
-    <!-- End AdSense Ad Unit -->
-
-    <div class="form-container">
-        <h2>Partnership Inquiry</h2>
-        <form action="https://formspree.io/f/xgolebdd" method="POST">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="_replyto" required>
-            <label for="message">Inquiry Details:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-            <button type="submit">Send Inquiry</button>
-        </form>
-    </div>
-
-    <div id="disqus_thread"></div>
-</main>
+    <section class="info-section">
+        <h2>Tips for Local Business Owners</h2>
+        <p>Our Local Restaurants Map aims for co-prosperity of local businesses, beyond simple promotion. Please use the inquiry form at the bottom for consulting applications.</p>
+    </section>
+</div>
 
 <footer>
-    <a href="about_en.html">About</a> | <a href="privacy_en.html">Privacy Policy</a>
+    <p>&copy; 2026 Local Restaurants Map. All rights reserved.</p>
+    <a href="privacy_en.html">Privacy Policy</a> | <a href="about_en.html">Inquiry</a>
 </footer>
 
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_APP_KEY"></script>
 <script>
-    var disqus_config = function () {
-    this.page.url = window.location.href;
-    this.page.identifier = 'english-dinner-menu-recommender';
-    };
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https-gold-98p-pages-dev.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
+    // Map initialization script (basic structure)
+    console.log("Map engine ready");
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-<script src="script.js"></script>
 
 </body>
 </html>

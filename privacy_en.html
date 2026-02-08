@@ -4,31 +4,20 @@
     <meta charset="UTF-8">
     <title>Privacy Policy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <style>
-        body {
-            font-family: sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            background: #f4f4f4;
-            color: #333;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        a {
-            color: #007bff;
-        }
+        /* Specific styles for this page, overriding or extending main styles */
+        body { background: #f4f4f4; color: #333; display: flex; flex-direction: column; min-height: 100vh;}
+        .container { flex: 1; max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: var(--main-color); text-align: center; }
+        a { color: var(--main-color); }
+        .back-link { text-align: center; margin-top: 20px;}
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Privacy Policy</h1>
-        <p>This site values your privacy and complies with relevant laws and regulations regarding information and communication network use and information protection.</p>
+        <p><strong>Local Restaurants Map</strong> values your privacy and complies with relevant laws and regulations regarding information and communication network use and information protection.</p>
         
         <h2>1. Personal Information We Collect</h2>
         <p>This site collects the following personal information to process partnership inquiries.</p>
@@ -45,11 +34,12 @@
 
         <h2>4. Matters Concerning Cookies</h2>
         <p>This site uses the Google AdSense advertising service, and cookies may be used in this process. Cookies are used to provide users with a better advertising experience and do not contain personally identifiable information. Users can refuse to store cookies by changing their web browser settings.</p>
+        <p>This map uses the Kakao Map API, and information may be collected according to Kakao Map's policies during this process. Please refer to Kakao Map's Privacy Policy for details.</p>
 
         <h2>5. Civil Service for Personal Information</h2>
-        <p>For inquiries regarding personal information, please contact us through the partnership inquiry form.</p>
+        <p>For inquiries regarding personal information, please contact us through the <a href="about_en.html">contact us</a> page.</p>
         <hr>
-        <p><a href="en.html">Return to Home</a></p>
+        <p class="back-link"><a href="en.html">Return to Home</a></p>
     </div>
 </body>
 </html>
