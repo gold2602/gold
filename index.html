@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <title>오늘 저녁 뭐 먹지?</title>
 <meta name="google-adsense-account" content="ca-pub-2130476893965292">
+<meta name="description" content="매일 저녁 메뉴를 고민하는 당신을 위한 간단한 저녁 메뉴 추천기입니다. 버튼 하나로 다양한 메뉴 아이디어를 얻어보세요.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
     body {
@@ -11,12 +13,20 @@
         color: white;
         font-family: Arial, sans-serif;
         text-align: center;
-        padding-top: 40px;
+        padding: 0;
+        margin: 0;
         min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    header {
+        padding: 20px;
+        position: relative;
     }
 
     h1 {
-        margin-bottom: 30px;
+        margin-bottom: 10px;
     }
 
     #language-selector {
@@ -42,6 +52,17 @@
         text-decoration: underline;
     }
 
+    main {
+        flex: 1;
+        padding: 20px;
+    }
+
+    .intro-text {
+        max-width: 600px;
+        margin: 0 auto 30px auto;
+        line-height: 1.6;
+    }
+
     #menu-display {
         display: flex;
         justify-content: center;
@@ -49,7 +70,7 @@
         min-height: 100px;
         font-size: 32px;
         font-weight: bold;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
     }
 
     button {
@@ -77,9 +98,9 @@
     }
 
     .adsense-ad-container {
-        margin: 30px auto; /* Provide some vertical spacing */
-        max-width: 728px; /* Example max-width for a common ad size */
-        text-align: center; /* Center the ad unit */
+        margin: 30px auto;
+        max-width: 728px;
+        text-align: center;
     }
 
     button:hover {
@@ -92,7 +113,6 @@
         padding: 30px;
         background: rgba(255, 255, 255, 0.1);
         border-radius: 12px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     .form-container h2 {
@@ -129,15 +149,25 @@
         border: none;
         border-radius: 8px;
         background: gold;
-        color: #333;
         font-size: 18px;
         font-weight: bold;
         cursor: pointer;
-        transition: background 0.3s ease;
     }
 
-    .form-container form button[type="submit"]:hover {
-        background: orange;
+    footer {
+        padding: 20px;
+        margin-top: 40px;
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    footer a {
+        color: gold;
+        margin: 0 15px;
+        text-decoration: none;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
     }
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2130476893965292"
@@ -146,51 +176,58 @@
 
 <body>
 
-<div id="language-selector">
-    <a href="#" class="current-lang">한국어</a> | <a href="en.html">English</a>
-</div>
+<header>
+    <div id="language-selector">
+        <a href="#" class="current-lang">한국어</a> | <a href="en.html">English</a>
+    </div>
+    <h1>오늘 저녁 뭐 먹지? 😋</h1>
+</header>
 
-<h1>오늘 저녁 뭐 먹지? 😋</h1>
+<main>
+    <p class="intro-text">매일 저녁, 무엇을 먹을지 고민되시나요? 저희의 간단한 저녁 메뉴 추천기가 그 고민을 덜어드립니다. 아래 '메뉴 추천' 버튼을 눌러보세요. 인공지능이 무작위로 맛있는 저녁 메뉴를 제안해 드립니다.</p>
 
-<div id="menu-display"></div>
+    <div id="menu-display"></div>
 
-<div id="menu-image">
-    <img src="pizza.jpg" alt="Pizza Image">
-</div>
+    <div id="menu-image">
+        <img src="pizza.jpg" alt="Pizza Image">
+    </div>
 
-<!-- AdSense Ad Unit -->
-<div class="adsense-ad-container">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-2130476893965292"
-         data-ad-slot="YOUR_AD_SLOT_ID"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-</div>
-<!-- End AdSense Ad Unit -->
+    <button onclick="recommend()">메뉴 추천</button>
 
-<button onclick="recommend()">메뉴 추천</button>
+    <!-- AdSense Ad Unit -->
+    <div class="adsense-ad-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-2130476893965292"
+             data-ad-slot="YOUR_AD_SLOT_ID"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    <!-- End AdSense Ad Unit -->
 
-<div class="form-container">
-    <h2>제휴 문의</h2>
-    <form action="https://formspree.io/f/xgolebdd" method="POST">
-        <label for="name">이름:</label>
-        <input type="text" id="name" name="name" required>
+    <div class="form-container">
+        <h2>제휴 문의</h2>
+        <form action="https://formspree.io/f/xgolebdd" method="POST">
+            <label for="name">이름:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">이메일:</label>
+            <input type="email" id="email" name="_replyto" required>
+            <label for="message">문의 내용:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <button type="submit">문의 보내기</button>
+        </form>
+    </div>
 
-        <label for="email">이메일:</label>
-        <input type="email" id="email" name="_replyto" required>
+    <div id="disqus_thread"></div>
+</main>
 
-        <label for="message">문의 내용:</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
+<footer>
+    <a href="about.html">사이트 소개</a> | <a href="privacy.html">개인정보처리방침</a>
+</footer>
 
-        <button type="submit">문의 보내기</button>
-    </form>
-</div>
-
-<div id="disqus_thread"></div>
 <script>
     var disqus_config = function () {
     this.page.url = window.location.href;
