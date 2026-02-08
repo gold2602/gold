@@ -38,6 +38,20 @@
         font-weight: bold;
     }
 
+    #menu-image {
+        text-align: center;
+        margin-top: 20px;
+        min-height: 200px; /* To maintain layout consistency */
+        display: none; /* Hidden by default */
+    }
+
+    #menu-image img {
+        max-width: 200px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+
     button:hover {
         background: orange;
     }
@@ -50,16 +64,29 @@
 
 <div id="menu-display"></div>
 
+<div id="menu-image">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Eq_livre_blanc_de_pizza.svg/1200px-Eq_livre_blanc_de_pizza.svg.png" alt="Pizza Image">
+</div>
+
 <button onclick="recommend()">Recommend Menu</button>
 
 <script>
 function recommend() {
     const menuDisplay = document.getElementById('menu-display');
+    const menuImage = document.getElementById('menu-image');
     const menus = ['Chicken', 'Pizza', 'Pork Belly', 'Sushi', 'Pasta', 'Kimchi Stew', 'Doenjang Stew', 'Curry', 'Hamburger', 'Tteokbokki'];
     const randomIndex = Math.floor(Math.random() * menus.length);
     const selectedMenu = menus[randomIndex];
 
     menuDisplay.textContent = selectedMenu;
+
+    // Hide image by default
+    menuImage.style.display = 'none';
+
+    // If pizza is selected, show pizza image
+    if (selectedMenu === 'Pizza') {
+        menuImage.style.display = 'block';
+    }
 }
 </script>
 
