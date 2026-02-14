@@ -47,6 +47,19 @@ h1 {
     text-decoration: underline;
 }
 
+/* Social Share Buttons Styles */
+#social-share-buttons {
+    position: absolute;
+    top: 20px;
+    right: 150px; /* Adjust this value to avoid overlap with language selector */
+    z-index: 100;
+}
+
+#social-share-buttons .a2a_kit a {
+    margin-left: 5px; /* Space between buttons */
+}
+
+
 main {
     flex: 1;
     padding: 0; /* Container will handle padding */
