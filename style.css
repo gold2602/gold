@@ -121,3 +121,38 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 0; /* Adjust padding for smaller screens */
+        flex-direction: column; /* Stack items vertically */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #language-selector {
+        position: static; /* Remove absolute positioning */
+        margin-top: 10px; /* Add some space from the header title */
+        font-size: 14px;
+    }
+
+    #social-share-buttons {
+        position: static; /* Remove absolute positioning */
+        margin-top: 10px; /* Space from language selector */
+        right: auto; /* Reset right property */
+        top: auto; /* Reset top property */
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .container {
+        padding: 10px; /* Reduce container padding on mobile */
+    }
+
+    #map {
+        height: 300px; /* Adjust map height for smaller screens */
+    }
+}
